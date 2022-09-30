@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "jobs",
+  "info": {
+    "singularName": "job",
+    "pluralName": "jobs",
+    "displayName": "job",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true,
+      "minLength": 3,
+      "maxLength": 150
+    },
+    "Description": {
+      "type": "richtext",
+      "required": true,
+      "minLength": 10
+    },
+    "Screenshots": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
+    },
+    "link": {
+      "type": "string"
+    },
+    "stacks": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::stack.stack",
+      "mappedBy": "stack"
+    },
+    "User": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "admin::user"
+    }
+  }
+}
